@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zennex App</string>
+    <string name="delete_menu">Удалить</string>
+    <string name="dialog_edit_message">Сохранить изменения?</string>
+    <string name="dialog_edit_message_title">Имя элемента было изменено</string>
+    <string name="dialog_empty_message_title">Имя элемента не может быть пустым</string>
+    <string name="done">Добавить</string>
+    <string name="edit_menu">Изменить</string>
+    <string name="edit_text_list_hint">Имя элемента</string>
+    <string name="item_added_toast_message">Новый элемент был успешно добавлен</string>
+    <string name="item_changed_toast_message">Элемент был успешно изменен</string>
+    <string name="language_menu">Язык</string>
+    <string name="list_fragment">Список</string>
+    <string name="map_fragment">Карта</string>
+    <string name="parsing_fragment">БАШ</string>
+    <string name="revert">Отмена</string>
+    <string name="scaling_fragment">Фото</string>
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Zennex App</string>
+    <string name="list_fragment">List</string>
+    <string name="scaling_fragment">Scaling</string>
+    <string name="parsing_fragment">Parsing</string>
+    <string name="map_fragment">Map</string>
+    <string name="done">Done</string>
+    <string name="revert">Revert</string>
+    <string name="edit_text_list_hint">Item Name</string>
+    <string name="dialog_empty_message_title">Item Name should not be empty</string>
+    <string name="dialog_edit_message_title">Item Name has been changed</string>
+    <string name="dialog_edit_message">Save changes?</string>
+    <string name="item_added_toast_message">A new item has been added</string>
+    <string name="item_changed_toast_message">Item has been changed</string>
+    <string name="edit_menu">Edit</string>
+    <string name="delete_menu">Delete</string>
+    <string name="language_menu">Language</string>
+    <string name="lorem_ipsum" translatable="false">Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</string>
+</resources>
