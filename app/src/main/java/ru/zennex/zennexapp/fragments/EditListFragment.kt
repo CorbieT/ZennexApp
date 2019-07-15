@@ -54,6 +54,10 @@ class EditListFragment(private var listItem: ListItem? = null) : Fragment(), OnB
     }
 
     override fun onBackPressed() {
+        if (listItem == null) {
+            activity!!.supportFragmentManager.popBackStack()
+            return
+        }
         if (editText.text.toString() != listItem?.description) {
             if (listItem != null) {
                 fragmentManager?.let {

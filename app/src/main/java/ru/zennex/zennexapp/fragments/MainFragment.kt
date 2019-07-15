@@ -25,7 +25,7 @@ class MainFragment : Fragment() {
         tabLayout!!.addTab(tabLayout!!.newTab().setText(resources.getString(R.string.map_fragment)).setIcon(activity!!.getDrawable(R.drawable.map_icon)))
         tabLayout!!.addTab(tabLayout!!.newTab().setText(resources.getString(R.string.parsing_fragment)).setIcon(activity!!.getDrawable(R.drawable.parsing_icon)))
 
-        val adapter = MainTabAdapter(activity!!.supportFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+        val adapter = MainTabAdapter(childFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
         viewPager!!.adapter = adapter
 
         viewPager!!.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))

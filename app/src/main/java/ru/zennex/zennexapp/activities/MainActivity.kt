@@ -33,10 +33,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         currentLanguage = HawkManager.getLanguage()
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragmentContainer, MainFragment())
-            .commit()
+        //https://stackoverflow.com/questions/7951730/viewpager-and-fragments-whats-the-right-way-to-store-fragments-state
+        val fragment: MainFragment
+        if (savedInstanceState != null) {
+            fragment = supportFragmentManager.findFragmentByTag("main") as MainFragment
+        } else {
+            fragment = MainFragment()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainer, fragment, "main")
+                .commit()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -52,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                 HawkManager.saveLanguage(currentLanguage)
                 updateResources(currentLanguage)
                 setLanguageIconMenuItem(currentLanguage, item)
+                recreate()
             }
         }
         return super.onOptionsItemSelected(item)
