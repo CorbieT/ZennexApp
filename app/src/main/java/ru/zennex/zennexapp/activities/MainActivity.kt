@@ -1,21 +1,12 @@
 package ru.zennex.zennexapp.activities
 
-import android.content.res.Configuration
-import android.content.res.Resources
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NavUtils
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-import com.google.android.material.tabs.TabLayout
-import com.orhanobut.hawk.Hawk
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.zennex.zennexapp.R
-import ru.zennex.zennexapp.adapters.MainTabAdapter
+import ru.zennex.zennexapp.common.ContextWrapper
 import ru.zennex.zennexapp.common.HawkManager
 import ru.zennex.zennexapp.common.Language
 import ru.zennex.zennexapp.common.Language.*
@@ -57,10 +48,8 @@ class MainActivity : AppCompatActivity() {
         when (item?.itemId) {
             R.id.action_change_language -> {
                 currentLanguage = if (currentLanguage == RUS) ENG else RUS
-                HawkManager.saveLanguage(currentLanguage)
-                updateResources(currentLanguage)
                 setLanguageIconMenuItem(currentLanguage, item)
-                recreate()
+                updateResources(currentLanguage)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -82,15 +71,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateResources(language: Language) {
-        val locale = Locale(if (language == RUS) "ru" else "en")
-        Locale.setDefault(locale)
-        val config = resources.configuration
-        config.setLocale(locale)
-
-        //TODO MARK
-        baseContext.createConfigurationContext(config)
-//        recreate()
-//        resources.updateConfiguration(config, resources.displayMetrics)
+        HawkManager.saveLanguage(language)
+        recreate()
     }
 
+    override fun attachBaseContext(newBase: Context?) {
+        val locale = Locale(if (HawkManager.getLanguage() == RUS) "ru" else "en")
+        val context = ContextWrapper.wrap(newBase!!, locale)
+        super.attachBaseContext(context)
+    }
 }

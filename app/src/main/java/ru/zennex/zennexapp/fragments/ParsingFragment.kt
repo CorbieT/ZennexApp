@@ -27,7 +27,7 @@ class ParsingFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun loadQuotes(): List<Quote>? {
-        progressBar.visibility = View.VISIBLE
+        progressBar?.visibility = View.VISIBLE
         val quotesRepository = QuotesRepositoryProvider.provideQuotesRepository()
         var responseQuotes: List<Quote>? = null
         quotesRepository.uploadQuotes()
@@ -41,7 +41,7 @@ class ParsingFragment : Fragment() {
                     Log.d("debug", "error with loading Quotes")
                 },
                 {
-                    progressBar.visibility = View.INVISIBLE
+                    progressBar?.visibility = View.INVISIBLE
                     parsingRecycler?.adapter = responseQuotes?.let { QuotesAdapter(it) }
                 })
         return responseQuotes
