@@ -14,6 +14,9 @@ abstract class ListItemDataBase : RoomDatabase(){
     abstract fun listItemDAO(): ListItemDAO
 
     companion object {
+        /**
+         * @Volatile - при записи в это поле, оно сразу становится видимым для других потоков
+        */
         @Volatile
         private var INSTANCE: ListItemDataBase? = null
 

@@ -10,5 +10,3 @@ const val tableName = "listitem"
 data class ListItem(@PrimaryKey(autoGenerate = true) val id: Long = 0,
                     @ColumnInfo var description: String,
                     @ColumnInfo var checked: Boolean = false)
-
-data class ListItems(val total: Int, val last: String, val listItems: List<ListItem>)

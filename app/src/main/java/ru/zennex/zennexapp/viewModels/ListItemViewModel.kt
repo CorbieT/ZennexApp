@@ -15,13 +15,11 @@ import ru.zennex.zennexapp.repositories.ListItemRepository
 
 class ListItemViewModel(application: Application) : AndroidViewModel(application), LifecycleObserver {
 
-    private val repository: ListItemRepository
+    private val repository: ListItemRepository = ListItemRepository(application)
 
     val allListItems: Observable<List<ListItem>>
 
     init {
-        val listItemDAO = ListItemDataBase.getDataBase(application).listItemDAO()
-        repository = ListItemRepository(listItemDAO)
         allListItems = repository.allListItems
     }
 
